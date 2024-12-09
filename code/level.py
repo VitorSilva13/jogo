@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 
 class Level:
-    def __init__(self):
-        self.window = None
-        self.name = None
+    def __init__(self, window, name, menu_option):
+        self.window = window
+        self.name = name
         self.entity_list = None
 
     def run(self, ):
