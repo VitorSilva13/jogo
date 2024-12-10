@@ -9,8 +9,6 @@ ENTITY_SPEED = {
     'level1bg1': 1,
     'level1bg2': 2,
     'level1bg3': 3,
-    'level1bg4': 4,
-    'level1bg5': 5,
 
 }
 
