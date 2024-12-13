@@ -1,11 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import random
 
 import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.const import COLOR_WHITE, WINDOW_HEIGHT
+from code.const import COLOR_WHITE, WINDOW_HEIGHT, EVENT_ENEMY, SPAWN_TIME
 from code.entity import Entity
 from code.entityFactory import EntityFactory
 
@@ -19,9 +20,10 @@ class Level:
         self.entity_list.extend(EntityFactory.get_entity('level1bg'))
         self.entity_list.append(EntityFactory.get_entity('Player1'))
         self.timeout = 20000  # 20 segundos
+        pygame.time.set_timer(EVENT_ENEMY,SPAWN_TIME)
 
     def run(self, ):
-        clock=pygame.time.Clock()
+        clock = pygame.time.Clock()
         while True:
             clock.tick(60)
             for ent in self.entity_list:
@@ -32,6 +34,9 @@ class Level:
                 if event.type == pygame.QUIT:
                     pygame.quit()  # Close window
                     quit()  # End pygame
+                if event.type == EVENT_ENEMY:
+                    choice = random.choice(('Enemy1', 'Enemy2'))
+                    self.entity_list.append(EntityFactory.get_entity(choice))
 
             # text
             self.level_text(16, f'{self.name} - Timeout: {self.timeout / 1000 :.1f}', COLOR_WHITE, (10, 5))

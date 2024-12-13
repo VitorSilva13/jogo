@@ -32,18 +32,18 @@ class Menu:
                                    text_center_pos=((WIN_WIDTH / 2), 150 + 30 * i))
             pygame.display.flip()
 
-            # Check all events
+            # Check all events navegação pelo menu
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()  # Close window
-                    quit()  # End pygame
+                    quit()
                 if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_DOWN:  # DOWN KEY
+                    if event.key == pygame.K_DOWN:  # descer
                         if menu_option < len(MENU_OPTION) - 1:
                             menu_option += 1
                         else:
                             menu_option = 0
-                    if event.key == pygame.K_UP:  # UP KEY
+                    if event.key == pygame.K_UP:  # subir
                         if menu_option > 0:
                             menu_option -= 1
                         else:
