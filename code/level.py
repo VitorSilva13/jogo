@@ -8,8 +8,10 @@ from pygame.font import Font
 
 from code.EntityMediator import EntityMediator
 from code.const import COLOR_WHITE, WINDOW_HEIGHT, EVENT_ENEMY, SPAWN_TIME
+from code.enemy import Enemy
 from code.entity import Entity
 from code.entityFactory import EntityFactory
+from code.player import Player
 
 
 class Level:
@@ -21,7 +23,7 @@ class Level:
         self.entity_list.extend(EntityFactory.get_entity('level1bg'))
         self.entity_list.append(EntityFactory.get_entity('Player1'))
         self.timeout = 20000  # 20 segundos
-        pygame.time.set_timer(EVENT_ENEMY,SPAWN_TIME)
+        pygame.time.set_timer(EVENT_ENEMY, SPAWN_TIME)
 
     def run(self, ):
         clock = pygame.time.Clock()
@@ -30,6 +32,10 @@ class Level:
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
+                if isinstance(ent, (Player, Enemy)):
+                    shoot = ent.shoot()
+                    if shoot is not None:
+                        self.entity_list.append(shoot)
             # Check all events
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -44,8 +50,8 @@ class Level:
             self.level_text(16, f'fps: {clock.get_fps() :.0f}', COLOR_WHITE, (10, WINDOW_HEIGHT - 35))
             self.level_text(16, f'entidades: {len(self.entity_list)}', COLOR_WHITE, (10, WINDOW_HEIGHT - 20))
             pygame.display.flip()
-            EntityMediator.verify_collision(entity_list=self.entity_list) # collision
-            EntityMediator.verify_health(entity_list=self.entity_list) # health
+            EntityMediator.verify_collision(entity_list=self.entity_list)  # collision
+            EntityMediator.verify_health(entity_list=self.entity_list)  # health
 
         pass
 

@@ -16,10 +16,12 @@ ENTITY_HEALTH = {
     'level2bg2': 999,
     'level2bg3': 999,
     'level2bg4': 999,
-
     'Player1': 300,
+    'Player1Shot': 1,
+    'Enemy1Shot': 1,
+    'Enemy2Shot': 1,
     'Enemy1': 50,
-    'Enemy2': 30
+    'Enemy2': 30,
 
 }
 
@@ -35,8 +37,11 @@ ENTITY_SPEED = {
     'level2bg2': 2,
     'level2bg3': 3,
     'Player1': 3,
+    'Player1Shot': 5,
     'Enemy1': 2,
     'Enemy2': 1,
+    'Enemy1Shot': 3,
+    'Enemy2Shot': 3,
 
 }
 
@@ -46,6 +51,12 @@ MENU_OPTION = ('LEVEL 1',
                'OPTIONS',
                'SCORE',
                'EXIT')
+
+ENTITY_SHOT_DELAY = {
+    'Player1': 18,
+    'Enemy1': 20,
+    'Enemy2': 32
+}
 
 # S
 SPAWN_TIME = 4000
