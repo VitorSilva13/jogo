@@ -6,6 +6,7 @@ import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
 
+from code.EntityMediator import EntityMediator
 from code.const import COLOR_WHITE, WINDOW_HEIGHT, EVENT_ENEMY, SPAWN_TIME
 from code.entity import Entity
 from code.entityFactory import EntityFactory
@@ -25,7 +26,7 @@ class Level:
     def run(self, ):
         clock = pygame.time.Clock()
         while True:
-            clock.tick(60)
+            clock.tick(30)
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
@@ -43,6 +44,9 @@ class Level:
             self.level_text(16, f'fps: {clock.get_fps() :.0f}', COLOR_WHITE, (10, WINDOW_HEIGHT - 35))
             self.level_text(16, f'entidades: {len(self.entity_list)}', COLOR_WHITE, (10, WINDOW_HEIGHT - 20))
             pygame.display.flip()
+            EntityMediator.verify_collision(entity_list=self.entity_list) # collision
+            EntityMediator.verify_health(entity_list=self.entity_list) # health
+
         pass
 
     def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):
