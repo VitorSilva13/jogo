@@ -1,11 +1,12 @@
-# C
+# Cores
 import pygame
 
 COLOR_PURPLE = (28, 14, 64)
 COLOR_WHITE = (255, 255, 255)
 COLOR_YELLOW = (255, 255, 0)
+COLOR_GREEN = (0, 128, 0)
 
-# h
+# vidas
 ENTITY_HEALTH = {
     'level1bg0': 999,
     'level1bg1': 999,
@@ -16,7 +17,7 @@ ENTITY_HEALTH = {
     'level2bg2': 999,
     'level2bg3': 999,
     'level2bg4': 999,
-    'Player1': 300,
+    'Player1': 50000,
     'Player1Shot': 1,
     'Enemy1Shot': 1,
     'Enemy2Shot': 1,
@@ -25,7 +26,49 @@ ENTITY_HEALTH = {
 
 }
 
-# E
+# danos
+ENTITY_DAMAGE = {
+    'level1bg0': 0,
+    'level1bg1': 0,
+    'level1bg2': 0,
+    'level1bg3': 0,
+    'level2bg0': 0,
+    'level2bg1': 0,
+    'level2bg2': 0,
+    'level2bg3': 0,
+    'level2bg4': 0,
+    'Player1': 1,
+    'Player1Shot': 35,
+    'Enemy1Shot': 25,
+    'Enemy2Shot': 25,
+    'Enemy1': 1,
+    'Enemy2': 1,
+
+}
+
+ENTITY_KILLS = {
+    'level1bg0': 0,
+    'level1bg1': 0,
+    'level1bg2': 0,
+    'level1bg3': 0,
+    'level2bg0': 0,
+    'level2bg1': 0,
+    'level2bg2': 0,
+    'level2bg3': 0,
+    'level2bg4': 0,
+    'Player1': 0,
+    'Player1Shot': 0,
+    'Enemy1Shot': 0,
+    'Enemy2Shot': 0,
+    'Enemy1': 1,
+    'Enemy2': 1,
+}
+
+
+
+
+
+# Eventos
 EVENT_ENEMY = pygame.USEREVENT + 1
 ENTITY_SPEED = {
     'level1bg0': 0,
@@ -45,21 +88,21 @@ ENTITY_SPEED = {
 
 }
 
-# M
+# Menu
 MENU_OPTION = ('LEVEL 1',
                'LEVEL 2',
                'OPTIONS',
                'SCORE',
                'EXIT')
-
+# tiros speed
 ENTITY_SHOT_DELAY = {
     'Player1': 18,
     'Enemy1': 20,
     'Enemy2': 32
 }
 
-# S
+# Spawn time
 SPAWN_TIME = 4000
-# W
+# dimensão tela
 WIN_WIDTH = 576
 WINDOW_HEIGHT = 324
