@@ -18,8 +18,13 @@ class Game:
             menu_return = menu.run()
 
             if menu_return in [MENU_OPTION[0], MENU_OPTION[1], MENU_OPTION[2]]:
-                level = Level(self.window, 'Level1', menu_return)
-                level_return = level.run()
+                player_kills = [0, 0]
+                level = Level(self.window, 'level1', menu_return, player_kills)
+                level_return = level.run(player_kills)
+                if level_return:
+                    level = Level(self.window, 'level2', menu_return,player_kills)
+                    level_return = level.run(player_kills)
+
             elif menu_return == MENU_OPTION[4]:
                 pygame.quit()
                 quit()

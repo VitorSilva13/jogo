@@ -17,7 +17,7 @@ ENTITY_HEALTH = {
     'level2bg2': 999,
     'level2bg3': 999,
     'level2bg4': 999,
-    'Player1': 50000,
+    'Player1': 600,
     'Player1Shot': 1,
     'Enemy1Shot': 1,
     'Enemy2Shot': 1,
@@ -64,12 +64,9 @@ ENTITY_KILLS = {
     'Enemy2': 1,
 }
 
-
-
-
-
 # Eventos
 EVENT_ENEMY = pygame.USEREVENT + 1
+EVENT_TIMEOUT = pygame.USEREVENT + 2
 ENTITY_SPEED = {
     'level1bg0': 0,
     'level1bg1': 1,
@@ -79,12 +76,13 @@ ENTITY_SPEED = {
     'level2bg1': 1,
     'level2bg2': 2,
     'level2bg3': 3,
+    'level2bg4': 4,
     'Player1': 3,
     'Player1Shot': 5,
     'Enemy1': 2,
     'Enemy2': 1,
-    'Enemy1Shot': 3,
-    'Enemy2Shot': 3,
+    'Enemy1Shot': 2,
+    'Enemy2Shot': 2,
 
 }
 
@@ -97,12 +95,14 @@ MENU_OPTION = ('LEVEL 1',
 # tiros speed
 ENTITY_SHOT_DELAY = {
     'Player1': 18,
-    'Enemy1': 20,
-    'Enemy2': 32
+    'Enemy1': 50,
+    'Enemy2': 52
 }
 
 # Spawn time
-SPAWN_TIME = 4000
+SPAWN_TIME = 2000
+TIMEOUT_STEP = 100
+TIMEOUT_LEVEL = 60000
 # dimensão tela
 WIN_WIDTH = 576
 WINDOW_HEIGHT = 324

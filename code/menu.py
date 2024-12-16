@@ -20,7 +20,7 @@ class Menu:
         while True:
             # imagens
             self.window.blit(source=self.surf, dest=self.rect)
-            self.menu_text(text_size=50, text="Zombie Killer", text_color=COLOR_PURPLE,
+            self.menu_text(text_size=50, text="Space Station", text_color=COLOR_PURPLE,
                            text_center_pos=((WIN_WIDTH / 2), 70))
 
             for i in range(len(MENU_OPTION)):
