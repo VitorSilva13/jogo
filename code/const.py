@@ -87,10 +87,7 @@ ENTITY_SPEED = {
 }
 
 # Menu
-MENU_OPTION = ('LEVEL 1',
-               'LEVEL 2',
-               'OPTIONS',
-               'SCORE',
+MENU_OPTION = ('PRESS ENTER',
                'EXIT')
 # tiros speed
 ENTITY_SHOT_DELAY = {

@@ -68,9 +68,9 @@ class Level:
                 return False
 
             # text
-            self.level_text(16, f'{self.name} - Timeout: {self.timeout / 1000 :.1f}s', COLOR_WHITE, (10, 5))
+            self.level_text(16, f'{self.name} - Sobreviva: {self.timeout / 1000 :.1f}s', COLOR_WHITE, (10, 5))
             self.level_text(16, f'fps: {clock.get_fps() :.0f}', COLOR_WHITE, (10, WINDOW_HEIGHT - 35))
-            self.level_text(16, f'entidades: {len(self.entity_list)}', COLOR_WHITE, (10, WINDOW_HEIGHT - 20))
+            self.level_text(16, f'Atirar:Shift', COLOR_WHITE, (10, WINDOW_HEIGHT - 20))
             pygame.display.flip()
             EntityMediator.verify_collision(entity_list=self.entity_list)  # collision
             EntityMediator.verify_health(entity_list=self.entity_list)  # health
